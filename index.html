@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPD Peer Support Directory</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode/1.5.3/qrcode.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__logo">
+                    <div class="logo-placeholder">
+                        <span class="logo-text">KPD</span>
+                    </div>
+                    <div class="header__title">
+                        <h1>Killeen Police Department</h1>
+                        <p>Peer Support Directory</p>
+                    </div>
+                </div>
+                <nav class="header__nav">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#team" class="nav-link">Team</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero__content">
+                <h2 class="hero__title">Your Wellness, Our Priority</h2>
+                <p class="hero__subtitle">
+                    Confidential peer support services available 24/7 for all KPD personnel and their families. 
+                    Our trained team members understand the unique challenges of law enforcement and are here to help.
+                </p>
+                <div class="hero__actions">
+                    <a href="#contact" class="btn btn--primary btn--lg">Get Support Now</a>
+                    <button id="shareBtn" class="btn btn--outline btn--lg">Share Directory</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Your Peer Support Team</h2>
+                <p>Click on any team member to learn more about their specializations and availability.</p>
+            </div>
+            
+            <div class="team-grid" id="teamGrid">
+                <!-- Team members will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About KPD Peer Support</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-card">
+                    <h3>Our Mission</h3>
+                    <p id="missionText"></p>
+                </div>
+                
+                <div class="about-card">
+                    <h3>Confidentiality</h3>
+                    <p id="confidentialityText"></p>
+                </div>
+                
+                <div class="about-card">
+                    <h3>When to Use Peer Support</h3>
+                    <p id="whenToUseText"></p>
+                </div>
+                
+                <div class="about-card important-note">
+                    <h3>Important Note</h3>
+                    <p id="notTherapyText"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Contacts Section -->
+    <section id="contact" class="emergency-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Emergency Resources</h2>
+                <p>Immediate help is always available. Don't hesitate to reach out.</p>
+            </div>
+            
+            <div class="emergency-grid" id="emergencyGrid">
+                <!-- Emergency contacts will be populated by JavaScript -->
+            </div>
+            
+            <div class="print-section">
+                <button id="printBtn" class="btn btn--secondary">Print Emergency Contacts</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h4>Killeen Police Department</h4>
+                    <p>Peer Support Program</p>
+                    <p>Serving our community with integrity and compassion</p>
+                </div>
+                <div class="footer__section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#team">Support Team</a></li>
+                        <li><a href="#about">About Program</a></li>
+                        <li><a href="#contact">Emergency Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h4>24/7 Support</h4>
+                    <p><strong>KPD Peer Support Hotline</strong></p>
+                    <p><a href="tel:254-501-4357" class="emergency-link">254-501-HELP (4357)</a></p>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 Killeen Police Department. All rights reserved. | Confidential Support Services</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Team Member Details -->
+    <div id="memberModal" class="modal">
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3 id="modalName"></h3>
+                <button class="modal__close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal__body">
+                <div class="member-details">
+                    <div class="member-image">
+                        <img id="modalImage" alt="Team member photo">
+                    </div>
+                    <div class="member-info">
+                        <div class="info-section">
+                            <h4>Title & Experience</h4>
+                            <p id="modalTitle"></p>
+                            <p id="modalYears"></p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Specializations</h4>
+                            <div id="modalSpecializations"></div>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Contact Information</h4>
+                            <p><strong>Phone:</strong> <a id="modalPhone" class="contact-link"></a></p>
+                            <p><strong>Email:</strong> <a id="modalEmail" class="contact-link"></a></p>
+                            <p><strong>Availability:</strong> <span id="modalAvailability"></span></p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Background</h4>
+                            <p id="modalBio"></p>
+                        </div>
+                        
+                        <div class="info-section">
+                            <h4>Certifications</h4>
+                            <div id="modalCertifications"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <button class="btn btn--primary" id="contactMemberBtn">Contact Now</button>
+                <button class="btn btn--secondary" id="closeModalBtn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="modal">
+        <div class="modal__content modal__content--small">
+            <div class="modal__header">
+                <h3>Share Directory</h3>
+                <button class="modal__close" id="closeQrModal">&times;</button>
+            </div>
+            <div class="modal__body">
+                <div class="qr-container">
+                    <div id="qrcode"></div>
+                    <p>Scan to access the KPD Peer Support Directory</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
